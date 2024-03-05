@@ -6,6 +6,7 @@ import time
 
 
 def login_sii (driver,rut,clave):
+        
         try:
             driver.get("https://zeusr.sii.cl//AUT2000/InicioAutenticacion/IngresoRutClave.html?https://misiir.sii.cl/cgi_misii/siihome.cgi")
             ruter_input =  driver.find_element(By.ID, "rutcntr")
@@ -15,16 +16,19 @@ def login_sii (driver,rut,clave):
             btn_ingreso = driver.find_element(By.ID, "bt_ingresar")
             btn_ingreso.click()
             time.sleep(2)
+            
             try:
                 alert = driver.switch_to.alert
                 alert.dismiss()
             except:
                 pass
+            
             try:
                 alert = driver.switch_to.alert
                 alert.dismiss()
             except:
                 pass
+            
             try:
                 driver.find_element(By.ID, "titulo")
                 print("no se pudo hacer login")
