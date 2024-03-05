@@ -4,7 +4,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import time
 
+
 def getResumenHonorarios(rut, clave, driver):
+    
     resultados= {}
     time.sleep(1)
     print("este usuario se esta ejecutando")
@@ -18,6 +20,7 @@ def getResumenHonorarios(rut, clave, driver):
     selectYear2023.click()
     buttonConsultar=wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/center[2]/form/table/tbody/tr[2]/td[3]/font/input[1]')))
     buttonConsultar.click()
+    
     try:
         textCap=wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/center[2]/font')))
         texto_capturado = textCap.text
@@ -52,6 +55,7 @@ def getResumenHonorarios(rut, clave, driver):
                 print("gola")
     except TimeoutException:
         pass
+    
     try:
         table = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/center[2]/form[1]')))
         if table.is_displayed():
@@ -104,5 +108,6 @@ def getResumenHonorarios(rut, clave, driver):
     except TimeoutException: 
         pass
     driver.quit()
+    
     return resultados
     
