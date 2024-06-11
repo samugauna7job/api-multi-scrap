@@ -8,7 +8,7 @@ try:
     mydb = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Liliana1025",
+        password="*",
         database="usersapi"
         )
     mycursor= mydb.cursor()
